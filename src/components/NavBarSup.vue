@@ -16,7 +16,7 @@
                     </form>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                             <a href="#" class="nav-link cor-clara">
+                             <a href="/login" class="nav-link cor-clara">
                                 <i class="bi bi-person"></i>
                             </a>
                         </li>
