@@ -1,0 +1,33 @@
+*{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color: #252525;
+    color:#fff;
+}
+/* CORES DE FUNDO */
+.bg-cor-1{
+    background-color: #252525;
+}
+.bg-cor-2{
+    background-color: #c09578;
+}
+
+/* CORES PARA TEXTO */
+.cor-1{
+    color:#c09578;
+}
+
+.cor-2{
+    color:#626262;
+}
+
+.cor-clara{
+    color:#fcf5eb;
+}
+
+.cor-escura{
+    color:#101010;
+}
+
+
