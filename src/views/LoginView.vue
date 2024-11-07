@@ -1,6 +1,32 @@
-<script setup>
+<script>
+import axios from '@/axios'
+export default{
+    data(){
+        return{
+            email: "",
+            senha:""
 
+        },
+    },
+    methods:{
+            fazerLogin(){
+                try{
+                const resposta = await axios.post('/api/login',{
+                    email: this.email,
+                    senha: this.senha
+                })
+                const {token} = resposta.data
+                localStorage.setItem("token",token)
+                this.$router.push("/catalogo")        
+            } catch (erro) {
+                console.log(erro)
+            } finally{
+                this.loading = false
+            }
+        }
 
+    }   
+}
 </script>
 
 <template>
@@ -11,16 +37,16 @@
                 <h2 class="h4 mt-3">Faça o Login</h2>
                 <form>
                     <div class="form-floating mb-3">
-                        <input type="email" name="email" id="email" 
+                        <input type="email" name="email" id="email" v-model="email"
                         class="form-control" placeholder="Digite o seu e-mail">
                         <label for="email" class="form-label">Digite o seu e-mail</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" name="password" id="password" 
+                        <input type="password" name="password" id="password" v-model="senha" 
                         class="form-control" placeholder="Digite a senha">
                         <label for="password" class="form-label">Digite a senha</label>
                     </div>
-                    <button type="button" class="btn btn-primary">Entrar</button>
+                    <button type="button" class="btn btn-primary" @click="fazerLogin">Entrar</button>
                 </form>
             </div>
             <div class="col-md-6 order-md-1">
