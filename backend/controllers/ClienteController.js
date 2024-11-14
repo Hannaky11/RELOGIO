@@ -124,4 +124,12 @@ module.exports = class ClienteController{
 
         res.status(200).send(usuarioAtual)
     }
+
+    /* método buscarTodos (os clientes) */
+    static async buscarTodos(req,res){
+        const users = await Cliente.find().sort('-createdAt')
+        res.status(200).json({
+          clientes: users  
+        })
+    }
 }/* fim da classe ClienteController  */

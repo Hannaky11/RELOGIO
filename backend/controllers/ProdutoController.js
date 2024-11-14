@@ -15,27 +15,27 @@ module.exports = class ProdutoController{
         const dataFabricacao = 
         req.body.dataFabricacao
         /* Validações */
-        if(!sku){
+        if (!sku){
             res.status(422).json({mensagem: "O código sku é obrigatório"})
             return
         }
 
-        if(!marca){
+        if (!marca){
             res.status(422).json({mensagem: "A marca é obrigatória"})
             return
         }
 
-        if(!descricao){
-            res.status(422).json({mensagem: "A descrição é obrigatório"})
+        if (!descricao){
+             res.status(422).json({mensagem: "A descrição é obrigatório"})
             return
         }
 
-        if(!preco){
+        if (!preco){
             res.status(422).json({mensagem: "O preço é obrigatório"})
             return
         }
 
-        if(!dataFabricacao){
+        if (!dataFabricacao){
             res.status(422).json({mensagem: "A data de fabricação é obrigatória"})
             return
         }
@@ -43,7 +43,7 @@ module.exports = class ProdutoController{
         /* Verifica existência de produto */
         const produtoExiste = await Produto.findOne({sku:sku})
 
-        if(produtoExiste){
+        if (produtoExiste){
             res.status(422).json({mensagem: "Produto já cadastrado!"})
             return
         }

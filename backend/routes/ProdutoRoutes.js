@@ -4,7 +4,7 @@ const ProdutoController =
 require('../controllers/ProdutoController')
 
 /* Obter todos os produtos */
-router.get('/',ProdutoController.buscarTodos)
+router.get('/todos',ProdutoController.buscarTodos)
 
 /* Gravar um novo produto */
 router.post('/novoProduto', 
