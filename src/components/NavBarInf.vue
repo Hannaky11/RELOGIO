@@ -42,8 +42,13 @@
 <style>
     
     /* CSS DA NAVBAR INFERIOR */
+    #container-navbar-inferior{
+        margin-bottom: 4rem;
+    }
+    
     #container-navbar-inferior .container{
         justify-content: flex-end;
+        
     }
     /* estilizando o texto dos links da navbar inferior */
     #container-navbar-inferior a{

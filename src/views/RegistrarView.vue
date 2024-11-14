@@ -3,26 +3,27 @@ import axios from '@/axios'
 export default{
     data(){
         return{
+            nome: "",
             email: "",
-            senha:""
+            senha:"",
+            confsenha:"",
+            telefone:""
 
         }
     },
     methods:{
-            fazerLogin(){
+           async registrar(){
                 try{
-                const resposta =  axios.post('/login',{
+                const resposta = await axios.post('clientes/registrar',{
+                    nome: this.nome,
                     email: this.email,
-                    senha: this.senha
-                })
-                const {token} = resposta.data
-                localStorage.setItem("token",token)
-                this.$router.push("/catalogo")        
+                    senha: this.senha,
+                    confsenha:this.confsenha,
+                    telefone: this.telefone
+                }) 
             } catch (erro) {
                 console.log(erro)
-            } finally{
-                this.loading = false
-            }
+            } 
         }
 
     }   
@@ -30,13 +31,17 @@ export default{
 </script>
 
 <template>
-    
     <div class="container col-11 col-md-9" id="form-container">
         <!-- GRID LAYOUT para o form row (linha) e col (colunas) -->
         <div class="row align-items-center gx-5">
             <div class="col-md-6 order-md-2">
-                <h2 class="h4 mt-3">Faça o Login</h2>
+                <h2 class="h4 mt-3">Faça o seu Registro</h2>
                 <form>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="nome" id="nome" v-model="nome"
+                        class="form-control" placeholder="Digite o seu nome">
+                        <label for="email" class="form-label">Digite o seu nome</label>
+                    </div>
                     <div class="form-floating mb-3">
                         <input type="email" name="email" id="email" v-model="email"
                         class="form-control" placeholder="Digite o seu e-mail">
@@ -47,7 +52,17 @@ export default{
                         class="form-control" placeholder="Digite a senha">
                         <label for="password" class="form-label">Digite a senha</label>
                     </div>
-                    <button type="button" class="btn btn-primary" @click="fazerLogin">Entrar</button>
+                    <div class="form-floating mb-3">
+                        <input type="password" name="confpassword" id="confpassword" v-model="confsenha" 
+                        class="form-control" placeholder="Digite a senha">
+                        <label for="password" class="form-label">Confirme a senha</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="telefone" id="telefone" v-model="telefone" 
+                        class="form-control" placeholder="Digite a senha">
+                        <label for="password" class="form-label">Digite seu telefone com DDD</label>
+                    </div>
+                    <button type="button" class="btn btn-primary" @click="registrar">Registrar</button>
                 </form>
             </div>
             <div class="col-md-6 order-md-1">
@@ -55,7 +70,7 @@ export default{
                     <img src="@/assets/undraw_login_re_4vu2.svg" alt="Entrar com sua conta" class="img-fluid">
                 </div>
                 <div class="col-12" id="link-container">
-                    <a href="/registrar">Ainda não tenho cadastro</a>
+                    <a href="/login">Já possuo cadastro</a>
                 </div>
             </div>
         </div>

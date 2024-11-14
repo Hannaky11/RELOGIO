@@ -14,7 +14,8 @@ export default {
 <style>
 #footer{
     background-color: rgba(40, 38, 38, 0.85);
-    height: 5rem;    
+    height: 5rem;
+    margin-top: 300px;    
 }
 
 </style>
