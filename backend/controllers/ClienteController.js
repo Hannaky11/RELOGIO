@@ -132,4 +132,10 @@ module.exports = class ClienteController{
           clientes: users  
         })
     }
-}/* fim da classe ClienteController  */
+    static async buscarCliente(req,res,nome){
+        const user = await Cliente.findOne('nome').sort('-createdAt')
+        res.status(200).json({
+          cliente: user  
+        })
+    }
+ }/* fim da classe */

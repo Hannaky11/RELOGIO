@@ -7,4 +7,5 @@ router.post('/login', ClienteController.login)
 //NOVA ROTA A PARTIR DE 25/07/2024
 router.get('/checkuser', ClienteController.verificaUsuario)
 router.get('/todos',ClienteController.buscarTodos)
+router.get('/user', ClienteController.buscarCliente)
 module.exports = router

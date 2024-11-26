@@ -18,8 +18,8 @@
                     </a>
                 </li>
                 <li class="navbar-item">
-                    <a href="#" class="nav-link">
-                        Produtos
+                    <a href="/produtos" class="nav-link">
+                        Catálogo
                     </a>
                 </li>
                 <li class="navbar-item">

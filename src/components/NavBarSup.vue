@@ -21,7 +21,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link cor-clara">
+                            <a href="/perfil" class="nav-link cor-clara">
                                 <i class="bi bi-heart"></i>
                             </a>
                         </li>
